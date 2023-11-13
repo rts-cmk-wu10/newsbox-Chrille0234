@@ -1,0 +1,39 @@
+@use "variables/backgroundColors" as background;
+@use "variables/fontSizesAndColors" as *;
+@use "sass:math";
+
+$padding-inline: 35px;
+
+.search {
+  position: relative;
+  width: 90%;
+  margin: 15px auto;
+
+  input {
+    color: $font-grey-200;
+    background: background.$lightGrey;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+
+    padding: {
+      inline: $padding-inline;
+      block: math.div($padding-inline, 3);
+    }
+
+    &::placeholder {
+      font-size: 1rem;
+    }
+  }
+
+  span {
+    position: absolute;
+    right: 5%;
+    top: 9%;
+    font-size: 2rem;
+    color: $font-grey-200;
+  }
+}
+.bottomBorder{
+  border-bottom: 1px solid $font-grey-200;
+}
