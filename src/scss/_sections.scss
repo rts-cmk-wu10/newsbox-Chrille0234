@@ -1,0 +1,35 @@
+@use "variables/fontSizesAndColors" as *;
+.sectionHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 60px;
+  border-top: 1px solid black;
+
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: $grey-500;
+
+
+  &__title{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    gap: 5px;
+    span {
+    }
+  }
+  span{
+    font-size: 2rem;
+    color: black
+  }
+  > span{
+    font-size: 2.5rem;
+  }
+}
+
+
+.timmy{
+  display: none;
+}

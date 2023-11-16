@@ -1,0 +1,29 @@
+.removeScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.removeScrollbar {
+  width: 100dvw;
+  overflow-x: scroll;
+
+  > div {
+    width: 120dvw;
+    display: flex;
+
+    > div {
+      width: 100dvw;
+      display: flex;
+      scroll-snap-align: start
+    }
+
+    > button {
+      width: 20dvw;
+      scroll-snap-align: start;
+
+      background: cyan;
+
+      border: 0;
+    }
+  }
+}
+
