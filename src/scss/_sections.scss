@@ -1,4 +1,4 @@
-@use "variables/fontSizesAndColors" as *;
+@use "variables/backgroundColors" as *;
 .sectionHeader{
   display: flex;
   justify-content: space-between;
@@ -9,7 +9,7 @@
 
   text-transform: uppercase;
   font-size: 0.9rem;
-  color: $grey-500;
+  color: $primary-color-drab;
 
 
   &__title{

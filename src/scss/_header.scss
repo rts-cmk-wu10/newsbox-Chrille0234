@@ -1,14 +1,14 @@
-@use "variables/fontSizesAndColors" as *;
+@use "variables/backgroundColors" as *;
 
 .primaryHeader{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $grey-500;
+  color: $primary-color-drab;
   padding: 5px;
 
   border:{
-    bottom: solid 1px $font-grey-200;
+    bottom: solid 1px $primary-color-drab;
   }
 
   span{

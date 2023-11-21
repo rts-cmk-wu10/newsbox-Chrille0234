@@ -1,5 +1,4 @@
-@use "variables/backgroundColors" as background;
-@use "variables/fontSizesAndColors" as *;
+@use "variables/backgroundColors" as *;
 @use "sass:math";
 
 $padding-inline: 35px;
@@ -10,8 +9,8 @@ $padding-inline: 35px;
   margin: 15px auto;
 
   input {
-    color: $font-grey-200;
-    background: background.$lightGrey;
+    color: $primary-color-drab;
+    background: $secondary-color-ice;
     border: none;
     border-radius: 3px;
     width: 100%;
@@ -31,9 +30,9 @@ $padding-inline: 35px;
     right: 5%;
     top: 9%;
     font-size: 2rem;
-    color: $font-grey-200;
+    color: $typography-color-slate;
   }
 }
 .bottomBorder{
-  border-bottom: 1px solid $font-grey-200;
+  border-bottom: 1px solid $typography-color-slate;
 }
