@@ -1,9 +1,10 @@
 @use "variables/colorAndFonts" as *;
 
-.primaryHeader{
+.primaryHeader_index{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 115px;
   color: $primary-color-drab;
   padding: 5px;
 

@@ -16,6 +16,10 @@ module.exports = {
 			template: path.resolve(__dirname, "src", "settings.html"),
 			filename: "settings.html", // output file name
 		}),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, "src", "archive.html"),
+			filename: "archive.html", // output file name
+		}),
 	],
 
 	module: {
