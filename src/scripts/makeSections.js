@@ -3,11 +3,11 @@
 if(!window.location.pathname.includes("index.html")) return
 const sections = document.getElementById("sections");
 const categories = [
-    "arts", "automobiles", "books", "business", "fashion",
-    "food", "health", "home", "insider", "magazine",
-    "movies", "nyregion", "obituaries", "opinion", "politics",
+    "arts", "books", "business", "fashion",
+    "food", "home", "insider",
+    "movies", "nyregion", "obituaries", "opinion",
     "realestate", "science", "sundayreview", "technology", "theater",
-    "t-magazine", "travel", "upshot", "us", "world"
+    "t-magazine", "upshot", "us", "world"
 ];
 
 const KEY = "gg4o4fPysU10MQik7zMnN7FzGn9kGLqk";
@@ -48,9 +48,9 @@ function createArticle(result, section) {
         <div>
             <div>
                 <img src="${result.multimedia[2].url}">
-                <h2>${result.title}</h2>
+                <h2 >${result.title}</h2>
             </div>
-            <button class="material-symbols-outlined identifier" data-article="${result.url}">bottom_drawer</button>
+            <button class="material-symbols-outlined identifier">bottom_drawer</button>
         </div>
     </article>`
 
