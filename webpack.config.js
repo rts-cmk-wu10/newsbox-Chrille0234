@@ -6,14 +6,22 @@ const path = require("path")
 module.exports = {
 	//mode: process.env.environment == "production" ? "production" : "development",
 	mode: "production",
-	plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin({
-		template: path.resolve(__dirname, "src", "index.html")
-	})],
+	plugins: [
+		new MiniCssExtractPlugin(),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, "src", "index.html"),
+			filename: "index.html", // output file name
+		}),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, "src", "settings.html"),
+			filename: "settings.html", // output file name
+		}),
+	],
+
 	module: {
 		rules: [
 			{
-				test: /\.(s[ac]|c)ss$/i,
-				//test: path.resolve(__dirname, "src/scss/*"),
+				test: /\.(s[ac]|c)ss$/i, // test: css, scss
 				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "postcss-loader"]
 			},{
 				test: /\.(png|jpe?g)$/i,

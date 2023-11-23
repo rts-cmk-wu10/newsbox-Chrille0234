@@ -1,4 +1,4 @@
-@use "variables/backgroundColors" as *;
+@use "variables/colorAndFonts" as *;
 
 .primaryHeader{
   display: flex;
@@ -16,6 +16,10 @@
       size: 2rem;
     }
     user-select: none
+  }
+  .icon{
+    color: $primary-color-drab;
+    text-decoration: none;
   }
 }
 h1{
