@@ -1,9 +1,13 @@
-.removeScrollbar::-webkit-scrollbar {
+.section_article::-webkit-scrollbar {
   display: none;
 }
 
-.removeScrollbar {
+.section_article {
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
   width: 100dvw;
+  height: 115px;
   overflow-x: scroll;
 
   > div {
@@ -13,7 +17,16 @@
     > div {
       width: 100dvw;
       display: flex;
-      scroll-snap-align: start
+      scroll-snap-align: start;
+      align-items: center;
+
+      img{
+        width: 75px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        margin: 15px;
+      }
     }
 
     > button {
@@ -23,6 +36,9 @@
       background: cyan;
 
       border: 0;
+    }
+    h2{
+      font-size: 1.2rem
     }
   }
 }

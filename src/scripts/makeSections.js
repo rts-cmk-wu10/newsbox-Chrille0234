@@ -1,10 +1,13 @@
+(function(){
+
+if(!window.location.pathname.includes("index.html")) return
 const sections = document.getElementById("sections");
 const categories = [
-    "arts", "automobiles", "books", "business", "fashion",
-    "food", "health", "home", "insider", "magazine",
-    "movies", "nyregion", "obituaries", "opinion", "politics",
+    "arts", "books", "business", "fashion",
+    "food", "home", "insider",
+    "movies", "nyregion", "obituaries", "opinion",
     "realestate", "science", "sundayreview", "technology", "theater",
-    "t-magazine", "travel", "upshot", "us", "world"
+    "t-magazine", "upshot", "us", "world"
 ];
 
 const KEY = "gg4o4fPysU10MQik7zMnN7FzGn9kGLqk";
@@ -16,22 +19,46 @@ async function fetchData(category) {
     return data.results;
 }
 
-function createArticle(result) {
+function addToLocalstorage(result) {
+    // Retrieve existing data from local storage
+    const existingData = JSON.parse(localStorage.getItem("articleUrls")) || [];
+    const url = result.url;
+
+    if (!existingData.some(item => item.url === url)) {
+        const articleObject = {
+            title: result.title,
+            category: result.section,
+            image: result.multimedia[2].url,
+            url: url
+        };
+
+        existingData.push(articleObject);
+        localStorage.setItem("articleUrls", JSON.stringify(existingData));
+
+        console.log(`Article URL ${url} added to local storage.`);
+    } else {
+        console.log(`Article URL ${url} is already in local storage.`);
+    }
+}
+
+function createArticle(result, section) {
+    console.log(result)
     const ARTICLE = document.createElement("article")
-    ARTICLE.innerHTML = `<article class="removeScrollbar">
+    ARTICLE.innerHTML = `<article class="section_article">
         <div>
             <div>
                 <img src="${result.multimedia[2].url}">
-                    <h2>${result.title}</h2>
+                <h2 >${result.title}</h2>
             </div>
             <button class="material-symbols-outlined identifier">bottom_drawer</button>
         </div>
     </article>`
 
+    ARTICLE.querySelector("button").addEventListener("click", function(){
+        addToLocalstorage(result)
+    })
 
-
-
-    return ARTICLE.innerHTML
+    section.append(ARTICLE)
 }
 
 function saveToArchive(title) {
@@ -70,9 +97,7 @@ function addSections() {
                 if (!requestHasBeenMade) {
                     const results = await fetchData(category);
                     results.forEach((result, index) => {
-                        setTimeout(() => {
-                            SECTION.innerHTML += createArticle(result);
-                        }, 10 * index);
+                        createArticle(result, SECTION)
                     });
                     requestHasBeenMade = true;
                 } else {
@@ -96,3 +121,5 @@ function addSections() {
 }
 
 addSections();
+})()
+
